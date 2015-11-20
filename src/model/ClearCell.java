@@ -10,11 +10,15 @@ import java.util.Observer;
  */
 public class ClearCell extends Observable implements Cell {
 
+    private final int x;
+    private final int y;
     private boolean opened;
     private Observer board;
     private List<Cell> neighbours;
 
-    public ClearCell(Observer board) {
+    public ClearCell(Observer board, int x, int y) {
+        this.x = x;
+        this.y = y;
         this.opened = false;
         this.neighbours = new LinkedList<>();
         this.board = board;
@@ -23,8 +27,8 @@ public class ClearCell extends Observable implements Cell {
 
     @Override
     public void open() {
-        if(!this.opened){
-            board.update(this, getMinesAround());
+        if (!this.opened) {
+            board.update(this, new OpenResult(x, y, getMinesAround()));
         }
     }
 
@@ -33,10 +37,10 @@ public class ClearCell extends Observable implements Cell {
         this.neighbours.add(neighbour);
     }
 
-    private int getMinesAround(){
+    private int getMinesAround() {
         int mines = 0;
         for (Cell neighbour : neighbours) {
-            if (neighbour instanceof MineCell){
+            if (neighbour instanceof MineCell) {
                 mines++;
             }
         }

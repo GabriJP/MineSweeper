@@ -1,7 +1,5 @@
 package ui;
 
-import model.Board;
-
 import java.util.Observer;
 
 /**
@@ -9,6 +7,5 @@ import java.util.Observer;
  */
 public interface BoardDisplay extends Observer {
 
-    void addBoard(Board board);
     void start();
 }

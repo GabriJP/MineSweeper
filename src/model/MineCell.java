@@ -10,11 +10,15 @@ import java.util.Observer;
  */
 public class MineCell extends Observable implements Cell {
 
+    private final int x;
+    private final int y;
     private boolean opened;
     private List<Cell> neighbours;
     private Observer board;
 
-    public MineCell(Observer board) {
+    public MineCell(Observer board, int x, int y) {
+        this.x = x;
+        this.y = y;
         this.opened = false;
         this.neighbours = new LinkedList<>();
         this.board = board;
@@ -22,8 +26,8 @@ public class MineCell extends Observable implements Cell {
 
     @Override
     public void open() {
-        if(!this.opened){
-            this.board.update(this, -1);
+        if (!this.opened) {
+            this.board.update(this, new OpenResult(x, y, -1));
         }
     }
 

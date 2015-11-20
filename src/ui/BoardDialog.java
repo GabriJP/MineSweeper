@@ -8,6 +8,8 @@ import model.Difficulty;
 public interface BoardDialog {
 
     Difficulty getDifficulty();
+
     int getMaxX();
+
     int getMaxY();
 }
