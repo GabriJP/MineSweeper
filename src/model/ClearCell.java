@@ -28,6 +28,7 @@ public class ClearCell extends Observable implements Cell {
     @Override
     public void open() {
         if (!this.opened) {
+            opened = true;
             board.update(this, new OpenResult(x, y, getMinesAround()));
         }
     }
@@ -42,6 +43,11 @@ public class ClearCell extends Observable implements Cell {
         for (Cell neighbour : neighbours) {
             if (neighbour instanceof MineCell) {
                 mines++;
+            }
+        }
+        if(mines == 0){
+            for (Cell neighbour : neighbours) {
+                neighbour.open();
             }
         }
         return mines;

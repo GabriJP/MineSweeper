@@ -27,6 +27,7 @@ public class MineCell extends Observable implements Cell {
     @Override
     public void open() {
         if (!this.opened) {
+            this.opened = true;
             this.board.update(this, new OpenResult(x, y, -1));
         }
     }
