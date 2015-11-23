@@ -58,7 +58,7 @@ public class WindowsBoardDisplay extends JFrame implements BoardDisplay {
     public void update(Observable cell, Object result) {
         OpenResult openResult = (OpenResult) result;
         if (openResult.getMinesAround() == -1) {
-            if(!gameFinished){
+            if (!gameFinished) {
                 gameFinished = true;
                 mineField[openResult.getX()][openResult.getY()].setText(".");
             }

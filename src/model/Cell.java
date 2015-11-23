@@ -6,6 +6,4 @@ package model;
  */
 public interface Cell {
     void open();
-
-    void addNeighbour(Cell neighbour);
 }

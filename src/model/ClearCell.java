@@ -33,7 +33,6 @@ public class ClearCell extends Observable implements Cell {
         }
     }
 
-    @Override
     public void addNeighbour(Cell neighbour) {
         this.neighbours.add(neighbour);
     }
@@ -45,10 +44,8 @@ public class ClearCell extends Observable implements Cell {
                 mines++;
             }
         }
-        if(mines == 0){
-            for (Cell neighbour : neighbours) {
-                neighbour.open();
-            }
+        if (mines == 0) {
+            neighbours.forEach(Cell::open);
         }
         return mines;
     }
