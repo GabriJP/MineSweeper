@@ -1,6 +1,6 @@
 package control;
 
-import APLICACION.swing.Application;
+import application.swing.Application;
 
 public class NewGameCommand implements Command {
 
