@@ -1,4 +1,4 @@
-package application.swing;
+package APLICACION.swing;
 
 import model.Board;
 import model.Cell;

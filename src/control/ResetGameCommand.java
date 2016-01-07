@@ -1,6 +1,6 @@
 package control;
 
-import application.swing.Application;
+import APLICACION.swing.Application;
 
 public class ResetGameCommand implements Command {
 

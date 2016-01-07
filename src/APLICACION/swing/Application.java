@@ -1,4 +1,4 @@
-package application.swing;
+package APLICACION.swing;
 
 import control.Command;
 import control.NewGameCommand;
