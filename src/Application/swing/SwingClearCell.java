@@ -15,6 +15,7 @@ public class SwingClearCell extends SwingCell implements ClearCell {
 
 
     public SwingClearCell() {
+        super();
         neighbours = new LinkedList<>();
         this.setSize(new Dimension(20, 20));
         this.setMinimumSize(new Dimension(20, 20));

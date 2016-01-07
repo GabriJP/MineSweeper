@@ -15,6 +15,7 @@ public class Application extends JFrame {
 
     private Map<String, Command> commands = new HashMap<>();
     private Level level;
+    private SwingBoard board;
 
     public static void main(String[] args) {
         new Application().setVisible(true);
@@ -35,15 +36,21 @@ public class Application extends JFrame {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setMinimumSize(new Dimension(500,500));
+        this.setMinimumSize(new Dimension(600,600));
         this.setJMenuBar(createMenuBar());
-        this.createNewGame();
+        this.firstGame();
+    }
+
+    private void firstGame(){
+        level = askForLevel();
+        this.board = new SwingBoard(level);
+        this.add(board, BorderLayout.CENTER);
+        this.pack();
     }
 
     public void createNewGame() {
         level = askForLevel();
         resetGame();
-        this.repaint();
     }
 
     private Level askForLevel(){
@@ -82,6 +89,8 @@ public class Application extends JFrame {
     }
 
     public void setBoard(SwingBoard board){
+        this.remove(this.board);
+        this.board = board;
         this.add(board, BorderLayout.CENTER);
         this.pack();
     }

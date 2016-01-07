@@ -10,6 +10,7 @@ public class SwingMineCell extends SwingCell implements MineCell {
     private Board board;
 
     public SwingMineCell(Board board) {
+        super();
         this.board = board;
         this.setSize(new Dimension(20, 20));
         this.setMinimumSize(new Dimension(20, 20));
@@ -23,6 +24,8 @@ public class SwingMineCell extends SwingCell implements MineCell {
             if (!board.isFinished()) {
                 this.setText("*");
                 board.openAll();
+            } else {
+                this.setText(".");
             }
         }
     }
