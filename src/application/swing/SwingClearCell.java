@@ -14,8 +14,8 @@ public class SwingClearCell extends SwingCell implements ClearCell {
     private int minesAround;
 
 
-    public SwingClearCell() {
-        super();
+    public SwingClearCell(SwingBoard board) {
+        super(board);
         neighbours = new LinkedList<>();
         this.setSize(new Dimension(20, 20));
         this.setMinimumSize(new Dimension(20, 20));
@@ -31,6 +31,7 @@ public class SwingClearCell extends SwingCell implements ClearCell {
             } else {
                 this.setText(String.valueOf(minesAround));
             }
+            board.update();
         }
     }
 

@@ -4,6 +4,7 @@ import control.Command;
 import control.NewGameCommand;
 import control.ResetGameCommand;
 import model.Level;
+import view.ui.LevelDialog;
 
 import javax.swing.*;
 import java.awt.*;
@@ -54,8 +55,7 @@ public class Application extends JFrame {
     }
 
     private Level askForLevel(){
-        SwingLevelDialog dialog = new SwingLevelDialog(this);
-        dialog.setVisible(true);
+        LevelDialog dialog = new SwingLevelDialog(this);
         return dialog.getLevel();
     }
 

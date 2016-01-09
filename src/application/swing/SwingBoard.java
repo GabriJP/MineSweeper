@@ -22,6 +22,17 @@ public class SwingBoard extends JPanel implements Board {
         return finished;
     }
 
+    @Override
+    public void update() {
+        for (Cell cell : board) {
+            if(cell instanceof ClearCell && !cell.isOpened()){
+                return;
+            }
+        }
+        finished = true;
+        openAll();
+    }
+
     private static final int[] mineCells = new int[]{10, 40, 99};
     private static final int[] clearCells = new int[]{71, 216, 385};
 
@@ -45,7 +56,7 @@ public class SwingBoard extends JPanel implements Board {
             minesPositions.add(getRandomBetween(0, getCellQuantity() - 1));
         }
         for (int i = 0; i < getCellQuantity(); i++) {
-            board.add(minesPositions.contains(i) ? new SwingMineCell(this) : new SwingClearCell());
+            board.add(minesPositions.contains(i) ? new SwingMineCell(this) : new SwingClearCell(this));
         }
     }
 

@@ -1,11 +1,12 @@
 package application.swing;
 
 import model.Level;
+import view.ui.LevelDialog;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class SwingLevelDialog extends JDialog {
+public class SwingLevelDialog extends JDialog implements LevelDialog {
 
     private Level level;
 
@@ -14,10 +15,11 @@ public class SwingLevelDialog extends JDialog {
         this.setLocationRelativeTo(owner);
         this.setTitle("Choose level");
         this.level = Level.Easy;
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setResizable(false);
-        deplyUI();
+        this.deplyUI();
         this.pack();
+        this.setVisible(true);
     }
 
     private void deplyUI() {
@@ -40,6 +42,7 @@ public class SwingLevelDialog extends JDialog {
             level = Level.valueOf((String) levelComboBox.getSelectedItem());
             dispose();
         });
+
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         panel.add(okButton, gridBagConstraints);
